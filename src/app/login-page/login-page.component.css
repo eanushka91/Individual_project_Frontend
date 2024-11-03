@@ -1,0 +1,77 @@
+.body {
+    background: linear-gradient(135deg, #040d1c, #1a428c, #1E88E5);
+    min-height: 100vh;
+}
+
+.topic{
+    text-align: center;
+    font-family: serif;
+    font-size: 35px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.logincard{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: #0A1F44;
+    width: fit-content;
+    height: fit-content;
+    padding: 70px;
+
+    .Logintopic {
+        text-align: center;
+        font-size: 30px;
+        color: #FFFFFF;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+    
+    .email{
+        width: 20rem;
+        border-radius: 10px;
+        margin-bottom: 25px;
+    }
+    
+
+    .password {
+        width: 20rem;
+        border-radius: 10px;
+        margin-bottom: 4px;
+        
+    }
+
+    .forgotpass{
+        text-align: right;
+        font-size: 13px;
+        color: rgb(96, 183, 255);
+        margin-bottom: 50px;
+    }
+    
+    .button-group {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+
+
+.login-btn {
+    width: 20rem;
+    background-color: #0D47A1;
+    color: #FFFFFF;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #1565C0;
+}
