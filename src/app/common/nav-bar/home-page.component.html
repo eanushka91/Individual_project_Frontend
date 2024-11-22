@@ -10,7 +10,7 @@
         </ul>
         <ul class="nav-list space-y-6  mt-11 ml-1">
           <li class="nav-item text-l">
-            <button routerLink="/dashboard" *ngIf="role === 'admin'">📊|  Dashboard</button>
+            <button routerLink="/dashboard" *ngIf="role === 'admin'||'user'">📊|  Dashboard</button>
           </li>
           <li class="nav-item text-l">
             <button routerLink="fine-issuance" *ngIf="role === 'admin'">📝|  Fine Issuance</button>
@@ -20,6 +20,9 @@
           </li>
           <li class="nav-item text-l">
             <button routerLink="e-license" *ngIf="role === 'admin'">🪪|  E License</button>
+          </li>
+          <li class="nav-item text-l">
+            <button routerLink="userlicense" *ngIf="role === 'user'">🪪|  E License</button>
           </li>
           <li class="nav-item text-l">
             <button routerLink="reports" *ngIf="role === 'admin'">📑|  Reports</button>

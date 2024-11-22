@@ -8,6 +8,7 @@ import { HomePageComponent } from './common/nav-bar/home-page.component';
 import { SignupPageComponent } from './login/signup-page/signup-page.component';
 import { LoginPageComponent } from './login/login-page/login-page.component';
 import { UserFineIssuenceComponent } from './common/user-fine-issuence/user-fine-issuence.component';
+import { UserELicenseComponent } from './common/user-e-license/user-e-license.component';
 
 
 
@@ -48,6 +49,10 @@ export const routes: Routes = [
             {
                 path:"userfine",
                 component:UserFineIssuenceComponent
+            },
+            {
+                path:"userlicense",
+                component:UserELicenseComponent
             }
         ]
     },
