@@ -1,0 +1,40 @@
+<div class="flex">
+  <div class="w-12/12">
+      <router-outlet></router-outlet>
+  </div>
+  <div class="w-12/12 position-fixed" style="height: 100vh;">
+    <div class="bg-[#123a7e] rounded-tr-3xl rounded-br-3xl" style="height: 100%;">
+      <nav class="navbar w-52 bg-gradient-to-t from-[#0A1F44] to-[#1565C0]  text-white rounded-tr-full rounded-br-full " style="height: 100%;">
+        <ul class="topic font-semibold text-3xl -ml-2 mt-5">
+          <a style="font-family: 'Comic Sans MS', sans-serif;">Fine Smart</a>
+        </ul>
+        <ul class="nav-list space-y-6  mt-11 ml-1">
+          <li class="nav-item text-l">
+            <button routerLink="/dashboard" *ngIf="role === 'admin'">📊|  Dashboard</button>
+          </li>
+          <li class="nav-item text-l">
+            <button routerLink="fine-issuance" *ngIf="role === 'admin'">📝|  Fine Issuance</button>
+          </li>
+          <li class="nav-item text-l">
+            <button routerLink="userfine" *ngIf="role === 'user'">📝|  Fine Issuance</button>
+          </li>
+          <li class="nav-item text-l">
+            <button routerLink="e-license" *ngIf="role === 'admin'">🪪|  E License</button>
+          </li>
+          <li class="nav-item text-l">
+            <button routerLink="reports" *ngIf="role === 'admin'">📑|  Reports</button>
+          </li>
+          <li class="nav-item text-l">
+            <button routerLink="payment" *ngIf="role === 'user'">💵|  Payment</button>
+          </li>
+          <br><br><br><br>
+          <li class="nav-item text-l mb-4">
+            <button routerLink="">♻️|   Log out</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+

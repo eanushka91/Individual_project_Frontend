@@ -1,0 +1,54 @@
+<header class="bg-gradient-to-r from-[#33a3f9] to-[#031257] space-y-1 p-2 sticky top-0 w-full hover:bg-gradient-to-r hover:from-[#8B0000] hover:to-[#800080] hover:animate-pulse ">
+    <div class="ml-52">
+        <div class="flex items-center justify-between ml-3 ">
+            <h1 class="font-semibold font-serif text-white text-3xl">Dashboard</h1>
+        </div>
+    </div>
+</header>
+
+<div class="bg-gray-100 font-sans leading-normal tracking-normal ml-52">
+    <div class="flex flex-no-wrap">
+        <div class="flex-1 mt-6">
+            <div class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 ml-20 mr-24   ">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-lg font-semibold text-gray-800">Total Violations Recorded</h2>
+                    <p class="text-3xl font-bold text-green-500 mt-2">20</p>
+                    <p class="text-gray-600 mt-1">Total violations in Now</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-lg font-semibold text-gray-800">Total Revenue Collected</h2>
+                    <p class="text-3xl font-bold text-purple-500 mt-2">Rs:52,000</p>
+                    <p class="text-gray-600 mt-1">Total Fines collected</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md md:col-span-2 lg:col-span-1">
+                    <h2 class="text-lg font-semibold text-gray-800">Pending Payments</h2>
+                    <p class="text-3xl font-bold text-red-500 mt-2">10</p>
+                    <p class="text-gray-600 mt-1">Outstanding payments from violators</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-lg font-semibold text-gray-800">Open Support Tickets</h2>
+                    <p class="text-3xl font-bold text-yellow-500 mt-2">27</p>
+                    <p class="text-gray-600 mt-1">Tickets related to fine disputes</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-lg font-semibold text-gray-800">Active Violations</h2>
+                    <p class="text-3xl font-bold text-blue-500 mt-2">9</p>
+                    <p class="text-gray-600 mt-1">Violations currently under investigation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="max-w-2xl w-full p-6 bg-white rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Monthly Violations</h2>
+        
+        <canvas id="violationsChart" class="w-full h-64"></canvas>
+    </div>
+</div>

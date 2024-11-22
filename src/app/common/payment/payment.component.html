@@ -1,0 +1,60 @@
+<header class="bg-gradient-to-r from-[#33a3f9] to-[#031257] space-y-1 p-2 sticky top-0 w-full hover:bg-gradient-to-r hover:from-[#8B0000] hover:to-[#800080] hover:animate-pulse">
+    <div class="ml-52">
+        <div class="flex items-center justify-between ml-3">
+            <h1 class="font-semibold font-serif text-white text-3xl">Payment</h1>
+
+                <div class="flex items-center space-x-14  mr-10">
+                    <input type="text" placeholder="Search..."
+                        class="px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-md m">Search</button>
+                </div>
+            
+        </div>
+    </div>
+</header>
+
+
+<div class="bg-gray-100 flex items-center justify-center min-h-screen ml-52 w-[1000px]">
+    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold text-center text-gray-800">Payment Form</h2>
+
+        <form action="#" method="POST" class="space-y-4">
+            <!-- Cardholder Name -->
+            <div>
+                <label class="block mb-1 font-medium text-gray-600">Cardholder Name</label>
+                <input type="text" name="cardholderName" placeholder="John Doe" required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
+            </div>
+
+            <!-- Card Number -->
+            <div>
+                <label class="block mb-1 font-medium text-gray-600">Card Number</label>
+                <input type="text" name="cardNumber" placeholder="1234 5678 9012 3456" required maxlength="19"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
+            </div>
+
+            <!-- Expiration Date & CVV -->
+            <div class="flex space-x-4">
+                <div class="w-1/2">
+                    <label class="block mb-1 font-medium text-gray-600">Expiration Date</label>
+                    <input type="text" name="expirationDate" placeholder="MM/YY" required maxlength="5"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
+                </div>
+
+                <div class="w-1/2">
+                    <label class="block mb-1 font-medium text-gray-600">CVV</label>
+                    <input type="text" name="cvv" placeholder="123" required maxlength="3"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4">
+                <button type="submit"
+                    class="w-full px-4 py-2 font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    Submit Payment
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
