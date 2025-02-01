@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 
@@ -32,9 +32,13 @@ export class ELicenseComponent {
   constructor(private http: HttpClient) {
     this.loadcard();
   }
+  private token: any = JSON.parse(localStorage.getItem('token') || '');
+  private myheader: HttpHeaders = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`
+  });
 
   loadcard() {
-    this.http.get("http://localhost:8080/e_license/get-all").subscribe(data => {
+    this.http.get("http://localhost:8080/e_license/get-all", { headers: this.myheader }).subscribe(data => {
       console.log(data);
       this.licenseList = data;
     });

@@ -28,6 +28,7 @@ export class PaymentComponent {
  
   
   public showSearchModal: boolean = false;
+  public showpaymentModal: boolean = false;
 
   constructor(private http: HttpClient) {
     this.loadcard();

@@ -6,7 +6,7 @@
         </div>
         <input
             class="focus:ring-2 focus:ring-[#1565C0] focus:outline-none appearance-none w-9/12 text-sm leading-6 text-gray-900 placeholder-gray-400 rounded-md py-1 pl-5 ring-1 ring-gray-200 shadow-sm ml-4"
-            type="text" aria-label="Search Fine" [(ngModel)]="searchId" placeholder="Search Fine...">
+            type="text" aria-label="Search Fine" [(ngModel)]="searchId" placeholder="Search Fine..." (keydown.enter)="searchById(); showSearchModal = true; searchId = ''">
         <button
             class="hover:bg-[#1565C0] items-center rounded-md bg-blue-500 text-white text-sm font-medium pl-3 pr-3 py-2 shadow-sm ml-16"
             (click)="searchById(); showSearchModal = true; searchId = ''">Search

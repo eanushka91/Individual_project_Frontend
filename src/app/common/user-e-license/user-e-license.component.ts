@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { HttpClientModule,HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -33,15 +33,20 @@ export class UserELicenseComponent {
     this.loadcard();
   }
 
+  private token: any = JSON.parse(localStorage.getItem('token') || '');
+  private myheader: HttpHeaders = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`
+  });
+
   loadcard() {
-    this.http.get("http://localhost:8080/e_license/get-all").subscribe(data => {
+    this.http.get("http://localhost:8080/e_license/get-all", { headers: this.myheader }).subscribe(data => {
       console.log(data);
       this.licenseList = data;
     });
   }
 
   public addLicense() {
-    this.http.post("http://localhost:8080/e_license/add-license", this.license).subscribe((data) => {
+    this.http.post("http://localhost:8080/e_license/add-license", this.license, { headers: this.myheader }).subscribe((data) => {
       alert("License Added!!!!");
       this.loadcard();
       this.showAddModal = false; 
@@ -50,7 +55,7 @@ export class UserELicenseComponent {
 
   deleteLicenseById(id: any) {
     console.log(id);
-    this.http.delete(`http://localhost:8080/e_license/delete-by-id/${id}`).subscribe(data => {
+    this.http.delete(`http://localhost:8080/e_license/delete-by-id/${id}`, { headers: this.myheader }).subscribe(data => {
       alert("License deleted !!!!");
       this.loadcard();
     });
@@ -66,14 +71,14 @@ export class UserELicenseComponent {
   }
 
   saveLicense() {
-    this.http.put("http://localhost:8080/e_license/update-license", this.licenseTemp).subscribe(data => {
+    this.http.put("http://localhost:8080/e_license/update-license", this.licenseTemp, { headers: this.myheader }).subscribe(data => {
       alert("License Updated!!!!!");
       this.loadcard();
       this.showUpdateModal = false; 
     });
   }
   searchById() {
-    this.http.get(`http://localhost:8080/e_license/search-by-licenseno/${this.searchId}`).subscribe((data: any) => {
+    this.http.get(`http://localhost:8080/e_license/search-by-licenseno/${this.searchId}`, { headers: this.myheader }).subscribe((data: any) => {
       if (data) {
         console.log(data);
         this.searchResult = data;
@@ -90,7 +95,7 @@ export class UserELicenseComponent {
 
   public setStatus(license: any, status: string) {
     license.status = status;
-    this.http.put(`http://localhost:8080/e_license/update-license`, license).subscribe(() => {
+    this.http.put(`http://localhost:8080/e_license/update-license`, license, { headers: this.myheader }).subscribe(() => {
       alert(`License status updated to ${status}!`);
     });
   }

@@ -3,7 +3,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { response } from 'express';
 
 @Component({
   selector: 'app-login-page',
@@ -26,10 +25,16 @@ export class LoginPageComponent {
     }
 
     this.http.post("http://localhost:8080/user/login",user,{responseType: 'json'}).subscribe(
-        (response)=>{
+        (response: any)=>{
           console.log(response);
-          localStorage.setItem('user', JSON.stringify(response));
+          localStorage.setItem('user', JSON.stringify(response.user));
+          localStorage.setItem('token', JSON.stringify(response.token));
           this.router.navigate(['/dashboard']);
+          alert("Login successful!");
+        },
+        (error) => {
+          console.error(error);
+          alert("Incorrect email or password.");
         }
     );
   }

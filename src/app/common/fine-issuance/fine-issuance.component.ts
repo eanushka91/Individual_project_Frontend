@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 
@@ -36,8 +36,13 @@ export class FineIssuanceComponent {
     this.loadcard();
   }
 
+  private token: any = JSON.parse(localStorage.getItem('token') || '');
+  private myheader: HttpHeaders = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`
+  });
+
   loadcard() {
-    this.http.get("http://localhost:8080/fine/get-all").subscribe(data => {
+    this.http.get("http://localhost:8080/fine/get-all", { headers: this.myheader }) .subscribe(data => {
       console.log(data);
       this.fineList = data;
     });
@@ -45,7 +50,7 @@ export class FineIssuanceComponent {
 
   public addFine() {
     this.fine.status = 'unpaid';
-    this.http.post("http://localhost:8080/fine/add-fine", this.fine).subscribe((data) => {
+    this.http.post("http://localhost:8080/fine/add-fine", this.fine, { headers: this.myheader }).subscribe((data) => {
       alert("Fine Added!!!!");
       this.loadcard();
       this.showAddModal = false; 
@@ -54,7 +59,7 @@ export class FineIssuanceComponent {
 
   deleteFineById(id: any) {
     console.log(id);
-    this.http.delete(`http://localhost:8080/fine/delete-by-id/${id}`).subscribe(data => {
+    this.http.delete(`http://localhost:8080/fine/delete-by-id/${id}`, { headers: this.myheader }).subscribe(data => {
       alert("Fine deleted !!!!");
       this.loadcard();
     });
@@ -70,7 +75,7 @@ export class FineIssuanceComponent {
   }
 
   saveFine() {
-    this.http.put("http://localhost:8080/fine/update-fine", this.fineTemp).subscribe(data => {
+    this.http.put("http://localhost:8080/fine/update-fine", this.fineTemp, { headers: this.myheader }).subscribe(data => {
       alert("Fine Updated!!!!!");
       this.loadcard();
       this.showUpdateModal = false; 
@@ -78,7 +83,7 @@ export class FineIssuanceComponent {
   }
 
   searchById() {
-    this.http.get(`http://localhost:8080/fine/search-by-vehicleno/${this.searchId}`).subscribe((data: any) => {
+    this.http.get(`http://localhost:8080/fine/search-by-vehicleno/${this.searchId}`, { headers: this.myheader }).subscribe((data: any) => {
       if (data) {
         console.log(data);
         this.searchResult = data;

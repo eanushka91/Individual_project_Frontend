@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -33,8 +33,13 @@ export class UserFineIssuenceComponent {
     this.loadcard();
   }
 
+  private token: any = JSON.parse(localStorage.getItem('token') || '');
+  private myheader: HttpHeaders = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`
+  });
+
   loadcard() {
-    this.http.get("http://localhost:8080/fine/get-all").subscribe(data => {
+    this.http.get("http://localhost:8080/fine/get-all", { headers: this.myheader }).subscribe(data => {
       console.log(data);
       this.fineList = data;
     });
@@ -48,14 +53,14 @@ export class UserFineIssuenceComponent {
   }
 
   saveFine() {
-    this.http.put("http://localhost:8080/fine/update-fine", this.fineTemp).subscribe(data => {
+    this.http.put("http://localhost:8080/fine/update-fine", this.fineTemp, { headers: this.myheader }).subscribe(data => {
       alert("Fine Updated!!!!!");
       this.loadcard();
     });
   }
 
   searchById() {
-    this.http.get(`http://localhost:8080/fine/search-by-vehicleno/${this.searchId}`).subscribe((data: any) => {
+    this.http.get(`http://localhost:8080/fine/search-by-vehicleno/${this.searchId}`, { headers: this.myheader }).subscribe((data: any) => {
       if (data) {
         console.log(data);
         this.searchResult = data;
